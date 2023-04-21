@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(router);
 
 //Para la bd.
-//db().then(() => console.log("Conexion ready con la BD")).catch(e => console.error(`Error al conectar la DB ${e}`)) 
+db().then(() => console.log("Conexion ready con la BD")).catch(e => console.error(`Error al conectar la DB ${e}`))
 
 
 
