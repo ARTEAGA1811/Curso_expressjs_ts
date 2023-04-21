@@ -8,7 +8,7 @@ const getBlog = (req: Request, res: Response) => {
             blog: "U have got the Blog"
         })
     }catch(e){
-        handleHttp(res, "ERROR_GET_BLOG")
+        handleHttp(res, "ERROR_GET_BLOG", e)
     }
 }
 
@@ -20,7 +20,7 @@ const getBlogs = (req: Request, res: Response) => {
             blog: "U have got all the items"
         })
     }catch(e){
-        handleHttp(res, "ERROR_GET_BLOGS")
+        handleHttp(res, "ERROR_GET_BLOGS", e)
     }
 }
 
@@ -29,7 +29,7 @@ const updateBlog = (req: Request, res: Response) => {
     try{
         console.log("Method updateBlog")
     }catch(e){
-        handleHttp(res, "ERROR_UPDATE_BLOG")
+        handleHttp(res, "ERROR_UPDATE_BLOG", e)
     }
 }
 
@@ -42,7 +42,7 @@ const postBlog = (req: Request, res: Response) => {
             "saludo": body.saludo
         })
     }catch(e){
-        handleHttp(res, "ERROR_POST_BLOG")
+        handleHttp(res, "ERROR_POST_BLOG", e)
     }
 }
 
@@ -50,7 +50,7 @@ const deleteBlog = (req: Request, res: Response) => {
     try{
 
     }catch(e){
-        handleHttp(res, "ERROR_DELETE_BLOG")
+        handleHttp(res, "ERROR_DELETE_BLOG", e)
     }
 }
 
