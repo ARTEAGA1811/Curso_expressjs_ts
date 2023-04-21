@@ -2,6 +2,7 @@ import {Auth} from "../interfaces/auth.interface";
 import UserModel from "../models/user.model";
 import {User} from "../interfaces/user.interface";
 import {encrpyt, comparePasswords} from "../security/encrypt.handle";
+import {generateToken} from "../security/token.handle";
 
 const registerNewUser = async (myUser: User) => {
     const checkExists = await UserModel.findOne({email: myUser.email})
@@ -33,7 +34,15 @@ const loginUser = async ({email, password}: Auth) => {
         return "Email or password are incorrect"
     }
 
-    return checkExists
+    //Como ya ingresó las credenciales correctas, vamos a hacer que se genere un token
+    //Vamos a usar el email como el identificador único.
+    const token = generateToken(checkExists.email)
+    console.log("Token: ", token)
+    const data = {
+        token: token,
+        user: checkExists
+    }
+    return data
 }
 
 export {registerNewUser, loginUser}
