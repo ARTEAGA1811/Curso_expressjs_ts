@@ -1,0 +1,1 @@
+// Este middleware se encarga de determinar si la sesión está o no activa.
